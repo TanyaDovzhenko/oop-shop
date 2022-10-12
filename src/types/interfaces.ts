@@ -9,6 +9,10 @@ export abstract class IClient {
     }
 }
 
+export abstract class IBonusService {
+    abstract addBonus(client: IClient, bonus: number): void
+}
+
 export abstract class IProduct {
     id: string = v4()
     price: number
@@ -22,4 +26,10 @@ export abstract class IProduct {
         this.category = category
         this.name = name
     }
+}
+
+export interface IShop {
+    products: Array<IProduct>
+    bonusService: IBonusService
+    sellProduct(productId: string, client: IClient): void
 }

@@ -22,13 +22,13 @@ export class FoodProduct extends Product {
         let time = new Date().getHours()
         if (time >= 8 && time <= 14 &&
             this.category == FoodCategories.BAKERY) {
-            this.price = this.price - ((this.price * 15) / 100)
-            this.discount = 15
+            this.discount = (this.price * 15) / 100
+            this.price = this.price - this.discount
         }
         else if (time >= 14 && time <= 18 &&
             this.category == FoodCategories.SWEETS) {
-            this.price = this.price - ((this.price * 5) / 100)
-            this.discount = 5
+            this.discount = (this.price * 5) / 100
+            this.price = this.price - this.discount
         }
     }
 }
@@ -43,12 +43,12 @@ export class HouseholdProduct extends Product {
     applyDiscount() {
         let day = new Date().getDay()
         if (day === 1 && this.category == HouseholdCategories.INTERIOR) {
-            this.price = this.price - ((this.price * 8) / 100)
-            this.discount = 8
+            this.discount = (this.price * 8) / 100
+            this.price = this.price - this.discount
         }
         else if (day === 3 && this.category == HouseholdCategories.GARDEN) {
-            this.price = this.price - ((this.price * 12) / 100)
-            this.discount = 12
+            this.discount = (this.price * 12) / 100
+            this.price = this.price - this.discount
         }
     }
 }
