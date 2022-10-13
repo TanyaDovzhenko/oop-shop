@@ -1,6 +1,7 @@
 import { products } from "../data/products"
-import { IBonusService, IClient, IProduct, IShop } from "../types/interfaces"
+import { IShop } from "../types/interfaces"
 import { BonusService } from "./BonusService"
+import { IBonusService, IClient, IProduct } from "../types/abstracts"
 
 export class Shop implements IShop {
     private static instance: Shop
@@ -17,17 +18,17 @@ export class Shop implements IShop {
         return this.instance
     }
 
-    sellProduct(productId: string, client: IClient) {
-        const product = this.products.find(el => el.id === productId)
-        if (product && client.balance >= product.price) {
+    sellProduct(product: IProduct, client: IClient) {
+        product.applyDiscount()
+        if (client.balance >= product.price) {
             client.balance -= product.price
-            this.products = this.products.filter(el => el.id !== productId)
+            this.products = this.products.filter(el => el.id !== product.id)
 
             let bonus = (product.price * 3) / 100
             this.bonusService.addBonus(client, bonus)
 
             console.log('TRANSACTION:', {
-                productId,
+                productId: product.id,
                 productPrice: product.price,
                 productName: product.name,
                 productCategory: product.category,

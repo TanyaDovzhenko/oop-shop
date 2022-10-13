@@ -1,8 +1,8 @@
-import { IClient } from "../types/interfaces"
+import { IClient, IProduct } from "../types/abstracts"
 import { Shop } from "./Shop"
 
 export class Client extends IClient {
-    buy(productId: string) {
-        Shop.getInstance().sellProduct(productId, this)
+    buy(product: IProduct) {
+        Shop.getInstance().sellProduct(product, this)
     }
 }

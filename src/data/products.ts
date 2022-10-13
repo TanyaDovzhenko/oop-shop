@@ -1,6 +1,6 @@
 import { FoodProduct, HouseholdProduct } from "../classes/Product";
 import { FoodCategories, HouseholdCategories } from "../types/enums";
-import { IProduct } from "../types/interfaces";
+import { IProduct } from "../types/abstracts";
 
 export const products: Array<IProduct> = [
     new FoodProduct(30, FoodCategories.SWEETS, 'Marshmallow'),

@@ -5,9 +5,7 @@ const shop = Shop.getInstance()
 const client = new Client(200)
 
 function buyEverything() {
-    shop.products.forEach(el => client.buy(el.id))
+    shop.products.forEach(el => client.buy(el))
 }
 
 buyEverything()
-
-

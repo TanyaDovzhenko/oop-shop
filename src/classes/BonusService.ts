@@ -1,4 +1,5 @@
-import { IBonusService, IClient } from "../types/interfaces";
+import { IBonusService, IClient } from "../types/abstracts";
+
 
 export class BonusService extends IBonusService {
     addBonus(client: IClient, bonus: number) {

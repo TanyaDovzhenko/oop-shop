@@ -1,4 +1,4 @@
-import { IProduct } from '../types/interfaces';
+import { IProduct } from '../types/abstracts';
 import { FoodCategories, HouseholdCategories } from '../types/enums';
 
 export class Product extends IProduct {
@@ -15,7 +15,6 @@ export class FoodProduct extends Product {
 
     constructor(price: number, category: FoodCategories, name: string) {
         super(price, category, name)
-        this.applyDiscount()
     }
 
     applyDiscount() {
@@ -37,7 +36,6 @@ export class HouseholdProduct extends Product {
 
     constructor(price: number, category: HouseholdCategories, name: string) {
         super(price, category, name)
-        this.applyDiscount()
     }
 
     applyDiscount() {
